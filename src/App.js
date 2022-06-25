@@ -69,11 +69,21 @@ class App extends Component {
             </div>
           </div>
           <Content />
+          <form action="http://localhost:3000/note" method="POST">
+              <div className="form-group">
+                  <label htmlFor="noteName">noteName</label>
+                  <input className="form-control" name="noteName" defaultValue="" />
+              </div>
+
+              <div className="form-group">
+                  <label htmlFor="noteBody">noteBody</label>
+                  <input className="form-control" name="noteBody" defaultValue="" />
+              </div>
+              <button type="submit" className="btn btn-primary">Save note</button>
+        </form>
           <div className='col-sm-6'>
-          
-          {/* <p>{!data ? "Loading..." : data}</p> */}
             <FiEdit className="float-end my-3" />
-            <span className="d-flex align-items-center"><FiFile className="me-1" /><input className="bg-dark text-light border-0 my-3 dark-mode" type="text" id="note-name" placeholder="my-note.md" value="" /></span>
+            <span className="d-flex align-items-center"><FiFile className="me-1" /><input className="bg-dark text-light border-0 my-3 dark-mode" type="text" id="note-name" placeholder="my-note.md" defaultValue="" /></span>
             <textarea
               onChange={this.handleChange}
               value={this.state.text}
@@ -85,9 +95,7 @@ class App extends Component {
             <FiEye className="float-end my-3" />
             <div className='dark-mode mt-5' dangerouslySetInnerHTML={this.renderText(this.state.text)} />
           </div>
-
         </div>
-       
       </div>
        
       </>
